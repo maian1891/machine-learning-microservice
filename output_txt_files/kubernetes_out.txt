@@ -1,3 +1,35 @@
+maian@Mais-MacBook-Pro machine-learning-microservice % ./run_kubernetes.
+sh
+pod/machine-learning-microservice created
+NAME                            READY   STATUS              RESTARTS   AGE
+machine-learning-microservice   0/1     ContainerCreating   0          0s
+error: unable to forward port because pod is not running. Current status=Pending
+maian@Mais-MacBook-Pro machine-learning-microservice % ./run_kubernetes.sh
+Error from server (AlreadyExists): pods "machine-learning-microservice" already exists
+NAME                            READY   STATUS    RESTARTS   AGE
+machine-learning-microservice   1/1     Running   0          6s
+Forwarding from 127.0.0.1:8000 -> 80
+Forwarding from [::1]:8000 -> 80
+Handling connection for 8000
+
+
+maian@Mais-MacBook-Pro machine-learning-microservice % ./make_prediction.sh
+Port: 8000
+{
+  "prediction": [
+    20.35373177134412
+  ]
+}
+
+ * Serving Flask app "app" (lazy loading)
+ * Environment: production
+   WARNING: Do not use the development server in a production environment.
+   Use a production WSGI server instead.
+ * Debug mode: on
+ * Running on http://0.0.0.0:80/ (Press CTRL+C to quit)
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 358-789-529
 [2023-07-26 16:19:46,625] INFO in app: JSON payload: 
 {'CHAS': {'0': 0}, 'RM': {'0': 6.575}, 'TAX': {'0': 296.0}, 'PTRATIO': {'0': 15.3}, 'B': {'0': 396.9}, 'LSTAT': {'0': 4.98}}
 [2023-07-26 16:19:46,685] INFO in app: Inference payload DataFrame: 
